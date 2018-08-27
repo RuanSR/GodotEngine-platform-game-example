@@ -8,7 +8,7 @@ const JUMP_HEIGHT = -500
 var motion = Vector2()
 
 func _physics_process(delta):
-	motion.y = GRAVITY
+	motion.y += GRAVITY
 	if Input.is_action_pressed("ui_right"):
 		motion.x = SPEED
 	elif Input.is_action_pressed("ui_left"):
