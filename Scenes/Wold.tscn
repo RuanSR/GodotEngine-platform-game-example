@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Player/Run0.png" type="Texture" id=2]
@@ -9,10 +9,8 @@
 [ext_resource path="res://Assets/Sprites/Player/Run7.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/Player/Idle0.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Sprites/Player/Jump0.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Sprites/Player/Jump1.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Sprites/Player/Jump3.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Sprites/Player/Jump4.png" type="Texture" id=12]
-[ext_resource path="res://Tiles/JungleTilesets.tres" type="TileSet" id=13]
+[ext_resource path="res://Assets/Sprites/Player/Jump4.png" type="Texture" id=10]
+[ext_resource path="res://Tiles/JungleTilesets.tres" type="TileSet" id=11]
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -27,16 +25,22 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
-"loop": false,
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
 "name": "Jump",
-"speed": 10.0
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 1.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 12, 28 )
+radius = 13.0
+height = 30.0
 
 [node name="Wold" type="Node2D" index="0"]
 
@@ -62,13 +66,13 @@ _sections_unfolded = [ "Z Index" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="1"]
 
 position = Vector2( 0, 4 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="TileMap" type="TileMap" parent="." index="1"]
 
 mode = 0
-tile_set = ExtResource( 13 )
+tile_set = ExtResource( 11 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
