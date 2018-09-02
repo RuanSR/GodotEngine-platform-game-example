@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Tiles/DirtAutoTile.tres" type="TileSet" id=2]
+[ext_resource path="res://Scenes/Portal.tscn" type="PackedScene" id=3]
+
+[node name="WoldTileTest" type="Node2D"]
+
+[node name="Player" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 224, 64 )
+
+[node name="TileMap" type="TileMap" parent="." index="1"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 0, 5, 10, 0, 5, 65536, 0, 65541, 65544, 0, 196613, 65546, 0, 65541, 131072, 0, 65541, 131076, 0, 1, 131077, 0, 65536, 131078, 0, 2, 131082, 0, 65541, 196608, 0, 65541, 196611, 0, 1, 196612, 0, 131078, 196613, 0, 131072, 196614, 0, 65547, 196615, 0, 196610, 196618, 0, 65541, 262144, 0, 8, 262145, 0, 2, 262147, 0, 131073, 262148, 0, 131074, 262153, 0, 1, 262154, 0, 11, 327680, 0, 65537, 327681, 0, 65547, 327682, 0, 196609, 327683, 0, 65544, 327684, 0, 65547, 327685, 0, 196609, 327686, 0, 196609, 327687, 0, 196609, 327688, 0, 196609, 327689, 0, 65544, 327690, 0, 65538 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Portal" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 736, 352 )
+wold_scene = "res://Scenes/Wold.tscn"
+
+

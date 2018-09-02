@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="ExemplePlatformGame"
-run/main_scene="res://Scenes/Wold.tscn"
+run/main_scene="res://Scenes/WoldTileTest.tscn"
 config/icon="res://icon.png"
 
 [display]
